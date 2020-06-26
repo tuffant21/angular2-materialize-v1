@@ -1,6 +1,14 @@
 {
   "name": "angular2-materialize-v1",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuffant21/angular2-materialize-v1.git"
+  },
+  "homepage": "https://github.com/tuffant21/angular2-materialize-v1#readme",
+  "bugs": {
+    "url": "https://github.com/tuffant21/angular2-materialize-v1/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"

@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build angular2-materialize-v1 --prod",
+    "publish": "npm publish ./dist/angular2-materialize-v1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

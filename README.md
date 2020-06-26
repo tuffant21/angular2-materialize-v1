@@ -1,7 +1,7 @@
-# angular2-materialize-2020
+# angular2-materialize-v1
 Angular 2 support for Materialize CSS v1.0+ framework.
 
-##Getting Started
+## Getting Started
 Feel free to take a look at the example-project to help you get started. 
 
 First, install materialize-css at the latest version if you haven't already
