@@ -1,15 +1,14 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {isPlatformServer} from '@angular/common';
-import {BannerService} from "../banner/banner.service";
+import {isPlatformServer} from "@angular/common";
 
 declare var M: any; // materialize
 
 @Injectable({
   providedIn: 'root'
 })
-export class MaterializeService {
+export class Angular2MaterializeV1Service {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private bannerService: BannerService) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
   }
 
   public autoInit() {
@@ -44,7 +43,7 @@ export class MaterializeService {
     if (isPlatformServer(this.platformId))
       return null;
 
-    const instances = M.Carousel.init(MaterializeService.getElements(elms), opts);
+    const instances = M.Carousel.init(Angular2MaterializeV1Service.getElements(elms), opts);
 
     if (Array.isArray(instances)) {
       for (let i = 0; i < instances.length; ++i) {
@@ -64,12 +63,12 @@ export class MaterializeService {
 
     if (Array.isArray(instances)) {
       for (let i = 0; i < instances.length; ++i) {
-        MaterializeService.removeAutoScroll(instances[i]);
+        Angular2MaterializeV1Service.removeAutoScroll(instances[i]);
         instances[i].destroy();
       }
     }
     else {
-      MaterializeService.removeAutoScroll(instances);
+      Angular2MaterializeV1Service.removeAutoScroll(instances);
       instances.destroy();
     }
   }
@@ -79,10 +78,10 @@ export class MaterializeService {
 
     instance.autoScrollIntervalId = window.setInterval(() => { instance.next() }, instance.options.autoScroll);
 
-    instance.el.addEventListener('mouseover', MaterializeService.carouselMouseOverTouchStart, {passive: true});
-    instance.el.addEventListener('mouseleave', MaterializeService.carouselMouseOutTouchEnd, {passive: true});
-    instance.el.addEventListener('touchstart', MaterializeService.carouselMouseOverTouchStart, {passive: true});
-    instance.el.addEventListener('touchend', MaterializeService.carouselMouseOutTouchEnd, {passive: true});
+    instance.el.addEventListener('mouseover', Angular2MaterializeV1Service.carouselMouseOverTouchStart, {passive: true});
+    instance.el.addEventListener('mouseleave', Angular2MaterializeV1Service.carouselMouseOutTouchEnd, {passive: true});
+    instance.el.addEventListener('touchstart', Angular2MaterializeV1Service.carouselMouseOverTouchStart, {passive: true});
+    instance.el.addEventListener('touchend', Angular2MaterializeV1Service.carouselMouseOutTouchEnd, {passive: true});
   }
 
   private static removeAutoScroll(instance) {
@@ -91,10 +90,10 @@ export class MaterializeService {
       instance.autoScrollIntervalId = undefined;
     }
 
-    instance.el.removeEventListener('mouseover', MaterializeService.carouselMouseOverTouchStart);
-    instance.el.removeEventListener('mouseleave', MaterializeService.carouselMouseOutTouchEnd);
-    instance.el.removeEventListener('touchstart', MaterializeService.carouselMouseOverTouchStart);
-    instance.el.removeEventListener('touchend', MaterializeService.carouselMouseOutTouchEnd);
+    instance.el.removeEventListener('mouseover', Angular2MaterializeV1Service.carouselMouseOverTouchStart);
+    instance.el.removeEventListener('mouseleave', Angular2MaterializeV1Service.carouselMouseOutTouchEnd);
+    instance.el.removeEventListener('touchstart', Angular2MaterializeV1Service.carouselMouseOverTouchStart);
+    instance.el.removeEventListener('touchend', Angular2MaterializeV1Service.carouselMouseOutTouchEnd);
   }
 
   private static carouselMouseOverTouchStart() {
@@ -120,56 +119,56 @@ export class MaterializeService {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.FormSelect.init(MaterializeService.getElements(elms), opts);
+    return M.FormSelect.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initDropdown(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Dropdown.init(MaterializeService.getElements(elms), opts);
+    return M.Dropdown.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initDatePicker(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Datepicker.init(MaterializeService.getElements(elms), opts);
+    return M.Datepicker.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initAutocomplete(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Autocomplete.init(MaterializeService.getElements(elms), opts);
+    return M.Autocomplete.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initModal(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Modal.init(MaterializeService.getElements(elms), opts);
+    return M.Modal.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initTooltip(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Tooltip.init(MaterializeService.getElements(elms), opts);
+    return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initCollapsible(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Collapsible.init(MaterializeService.getElements(elms), opts);
+    return M.Collapsible.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initCharacterCount(elms) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.CharacterCounter.init(MaterializeService.getElements(elms));
+    return M.CharacterCounter.init(Angular2MaterializeV1Service.getElements(elms));
   }
 
   public initPushpin(elms: string, opts?: any) {
@@ -177,7 +176,7 @@ export class MaterializeService {
       return null;
 
     if (!opts) opts = {};
-    const elements = MaterializeService.getElements(elms);
+    const elements = Angular2MaterializeV1Service.getElements(elms);
 
     if (elements instanceof NodeList && !opts.offset) {
       const ret = [];
@@ -202,21 +201,21 @@ export class MaterializeService {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Materialbox.init(MaterializeService.getElements(elms), opts);
+    return M.Materialbox.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initFloatingActionButton(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.FloatingActionButton.init(MaterializeService.getElements(elms), opts);
+    return M.FloatingActionButton.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   public initSlider(elms: string, opts?: any) {
     if (isPlatformServer(this.platformId))
       return null;
 
-    return M.Slider.init(MaterializeService.getElements(elms), opts);
+    return M.Slider.init(Angular2MaterializeV1Service.getElements(elms), opts);
   }
 
   private static getElements(elms: string): NodeListOf<HTMLElement> | HTMLElement {
