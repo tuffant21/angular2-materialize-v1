@@ -1,3 +1,24 @@
-<button class="btn">Generic Button</button>
-<br>
-<button class="btn blue"><i class="material-icons left">add</i>button with icon</button>
+<header>
+  <ul class="sidenav sidenav-fixed">
+    <li [ngClass]="{'active': currentRoute === '/getting-started'}"><a routerLink="/getting-started">Getting Started</a></li>
+    <li [ngClass]="{'active': currentRoute === '/auto-init'}"><a routerLink="/auto-init">Auto Init</a></li>
+    <li [ngClass]="{'active': currentRoute === '/carousel'}"><a routerLink="/carousel">Carousel</a></li>
+    <li [ngClass]="{'active': currentRoute === '/collapsible'}"><a routerLink="/collapsible">Collapsible</a></li>
+    <li [ngClass]="{'active': currentRoute === '/dropdown'}"><a routerLink="/dropdown">Dropdown</a></li>
+    <li [ngClass]="{'active': currentRoute === '/feature-discovery'}"><a routerLink="/feature-discovery">Feature Discovery</a></li>
+    <li [ngClass]="{'active': currentRoute === '/media'}"><a routerLink="/media">Media</a></li>
+    <li [ngClass]="{'active': currentRoute === '/modal'}"><a routerLink="/modal">Modal</a></li>
+    <li [ngClass]="{'active': currentRoute === '/parallax'}"><a routerLink="/parallax">Parallax</a></li>
+    <li [ngClass]="{'active': currentRoute === '/pushpin'}"><a routerLink="/pushpin">Pushpin</a></li>
+    <li [ngClass]="{'active': currentRoute === '/scrollspy'}"><a routerLink="/scrollspy">Scrollspy</a></li>
+    <li [ngClass]="{'active': currentRoute === '/sidenav'}"><a routerLink="/sidenav">Sidenav</a></li>
+    <li [ngClass]="{'active': currentRoute === '/tabs'}"><a routerLink="/tabs">Tabs</a></li>
+    <li [ngClass]="{'active': currentRoute === '/toast'}"><a routerLink="/toast">Toast</a></li>
+    <li [ngClass]="{'active': currentRoute === '/tooltip'}"><a routerLink="/tooltip">Tooltip</a></li>
+  </ul>
+</header>
+<main>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
