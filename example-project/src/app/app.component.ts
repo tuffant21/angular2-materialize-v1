@@ -12,18 +12,27 @@ export class AppComponent implements AfterViewInit {
 
   public currentRoute: string;
   public title = 'example-project';
+  public isGettingStartedActive: boolean;
+  public isJavaScriptActive: boolean;
 
   constructor(private router: Router, private angular2MaterializeService: Angular2MaterializeV1Service) {
-    this.currentRoute = this.router.url;
-    console.log(this.currentRoute);
     this.router.events
       .pipe(filter((evt) => evt instanceof NavigationEnd))
       .subscribe((evt: NavigationEnd) => {
         this.currentRoute = evt.urlAfterRedirects;
+        this.isGettingStartedActive = this.currentRoute === '/project-setup'
+          || this.currentRoute === '/using-angular2-materialize-v1';
+
+        this.isJavaScriptActive = this.currentRoute !== '/project-setup'
+          && this.currentRoute !== '/using-angular2-materialize-v1'
+          && this.currentRoute !== '/about'
+          && this.currentRoute !== '/donate';
       });
   }
 
-  ngAfterViewInit() {
-    this.angular2MaterializeService.initSidenav('.sidenav');
+  public ngAfterViewInit() {
+    //   this.angular2MaterializeService.initSidenav('.sidenav');
+    //   this.angular2MaterializeService.initCollapsible('.collapsible');
+    this.angular2MaterializeService.autoInit();
   }
 }

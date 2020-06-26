@@ -1,0 +1,49 @@
+<h1>angular2-materialize-v1</h1>
+<p>Angular 2 support for Materialize CSS v1.0+ framework.</p>
+<p>This project has 0 dependencies and requires no dependencies to be installed on your production server. Forget the
+  need to install hammerjs or jquery. It is made with vanilla JavaScript and vanilla Angular.</p>
+<h2>Getting Started</h2>
+<p>Feel free to take a look at the example-project to help you get started. </p>
+<p>First, install materialize-css at the latest version if you haven't already</p>
+<pre><code class="language-none">npm install materialize-css@next</code></pre>
+<p>Then install angular2-materialize-v1 to get this package</p>
+<pre><code class="language-none">npm install angular2-materialize-v1</code></pre>
+<p>Go to angular.json and find projects->PROJECT_NAME->architect->build->options and add</p>
+<ul class="browser-default">
+  <li>"node_modules/materialize-css/dist/css/materialize.min.css" to the styles array (first in list)</li>
+  <li>"node_modules/materialize-css/dist/js/materialize.min.js" to the scripts array</li>
+</ul>
+<p>It should look like the following</p>
+<pre><code class="language-json">{{ '{' }}
+  "projects": {{ '{' }}
+    "PROJECT_NAME": {{ '{' }}
+      "architect": {{ '{' }}
+        "build": {{ '{' }}
+          "options": {{ '{' }}
+            "styles": [
+              "node_modules/materialize-css/dist/css/materialize.min.css",
+              "...ect (DON'T ADD THIS LINE)"
+            ],
+            "scripts": [
+              "node_modules/materialize-css/dist/js/materialize.min.js"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>If you want material icons, go into the `index.html` and add
+  &lt;link href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot; rel=&quot;stylesheet&quot;&gt;
+  to the head like so.</p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;!-- ect --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>After the dependencies are installed, you will be able to use angular2-materialize-v1!</p>

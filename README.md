@@ -1,6 +1,9 @@
 # angular2-materialize-v1
 Angular 2 support for Materialize CSS v1.0+ framework.
 
+This project has 0 dependencies and requires no dependencies to be installed on your production server. Forget the need 
+to install hammerjs or jquery. It is made with vanilla JavaScript and vanilla Angular. 
+
 ## Getting Started
 Feel free to take a look at the example-project to help you get started. 
 
@@ -48,3 +51,7 @@ If you want material icons, go into the `index.html` and add `<link href="https:
 </body>
 </html>
 ```
+
+After the dependencies are installed, you will be able to use angular2-materialize-v1!
+
+## Using angular2-materialize-v1

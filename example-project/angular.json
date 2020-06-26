@@ -25,10 +25,12 @@
             ],
             "styles": [
               "node_modules/materialize-css/dist/css/materialize.min.css",
+              "src/assets/css/prism.css",
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/materialize-css/dist/js/materialize.min.js"
+              "node_modules/materialize-css/dist/js/materialize.min.js",
+              "src/assets/js/prism.js"
             ]
           },
           "configurations": {
