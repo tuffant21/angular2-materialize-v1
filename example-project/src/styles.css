@@ -2,3 +2,7 @@
 body {
   margin-bottom: 100px;
 }
+
+.materialize-pink-text {
+  color: #ee6e73;
+}

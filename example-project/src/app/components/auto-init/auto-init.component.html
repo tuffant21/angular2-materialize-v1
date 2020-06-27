@@ -1,1 +1,27 @@
-<p>auto-init works!</p>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 l9 offset-l3 xl10 offset-xl2">
+        <h1 class="materialize-pink-text">Auto Init</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 l9 offset-l3 xl10 offset-xl2">
+        <p>Auto Init allows you to initialize all of the Materialize Components with a single function call
+          <i>that are currently rendered in the angular view</i>. It is important to note that you cannot pass in
+          options using this method.</p>
+        <h2>Initialization</h2>
+<pre><code class="language-javascript">constructor(private angular2MaterializeService: Angular2MaterializeV1Service) {{'{'}}}
+
+public ngAfterViewInit(): void {{'{'}}
+  this.angular2MaterializeService.autoInit();
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
