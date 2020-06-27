@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AppComponent} from './app.component';
 import {AutoInitComponent} from './components/auto-init/auto-init.component';
 import {CarouselComponent} from './components/carousel/carousel.component';
 import {DropdownComponent} from './components/dropdown/dropdown.component';

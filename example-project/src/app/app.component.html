@@ -1,10 +1,15 @@
 <header>
-  <ul class="sidenav sidenav-fixed">
-    <li class="bold" [ngClass]="{'active': currentRoute === '/about'}"><a routerLink="/about">About</a></li>
-    <li class="bold" [ngClass]="{'active': currentRoute === '/donate'}"><a routerLink="/donate">Donate</a></li>
-    <li class="no-padding">
+  <ul id="mobile-nav" class="sidenav sidenav-fixed">
+    <li class="center">
+      <h1 class="materialize-pink-text">AM_V1</h1>
+      <p>angular material v1</p>
+    </li>
+    <li class="divider"></li>
+    <li [ngClass]="{'active': currentRoute === '/about'}"><a routerLink="/about">About</a></li>
+    <li [ngClass]="{'active': currentRoute === '/donate'}"><a routerLink="/donate">Donate</a></li>
+    <li>
       <ul class="collapsible collapsible-accordion">
-        <li class="bold" [ngClass]="{'active': isGettingStartedActive}">
+        <li [ngClass]="{'active': isGettingStartedActive}">
           <a class="collapsible-header" tabindex="0">Getting Started</a>
           <div class="collapsible-body">
             <ul>
@@ -13,7 +18,7 @@
             </ul>
           </div>
         </li>
-        <li class="bold" [ngClass]="{'active': isJavaScriptActive}">
+        <li [ngClass]="{'active': isJavaScriptActive}">
           <a class="collapsible-header" tabindex="0">JavaScript</a>
           <div class="collapsible-body">
             <ul>
