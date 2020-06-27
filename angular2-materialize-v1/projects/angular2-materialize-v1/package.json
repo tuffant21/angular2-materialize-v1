@@ -1,6 +1,8 @@
 {
   "name": "angular2-materialize-v1",
   "version": "0.0.3",
+  "author": "Anthony House <tuffant21@gmail.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tuffant21/angular2-materialize-v1.git"
@@ -9,6 +11,18 @@
   "bugs": {
     "url": "https://github.com/tuffant21/angular2-materialize-v1/issues"
   },
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular 2",
+    "angular 4",
+    "angular 5",
+    "angular 9",
+    "materialize",
+    "materializecss",
+    "materialize-css",
+    "materialize css"
+  ],
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"
