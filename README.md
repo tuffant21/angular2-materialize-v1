@@ -117,6 +117,9 @@ export class AppComponent implements AfterViewInit {
 ```
 
 ## TypeScript (JavaScript section for materializecss.com)
+For a full list of examples in the github code, check out the example project code here: 
+https://github.com/tuffant21/angular2-materialize-v1/tree/master/example-project/src/app/components
+
 ### AutoInit
 Auto Init allows you to initialize all of the Materialize Components with a single function call that are currently 
 rendered in the angular view. It is important to note that you cannot pass in options using this method.
