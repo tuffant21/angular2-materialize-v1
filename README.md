@@ -92,26 +92,53 @@ export class AppComponent implements AfterViewInit {
   public ngAfterViewInit() {
     // NOTE - autoInit() only works on the currently loaded items in view
     // this.angular2MaterializeService.autoInit();
-    // this.angular2MaterializeService.initAutocomplete();
-    // this.angular2MaterializeService.initCarousel();
-    // this.angular2MaterializeService.initCharacterCount();
-    // this.angular2MaterializeService.initCollapsible();
-    // this.angular2MaterializeService.initDatePicker();
-    // this.angular2MaterializeService.initDropdown();
-    // this.angular2MaterializeService.initFloatingActionButton();
-    // this.angular2MaterializeService.initMaterialboxed();
-    // this.angular2MaterializeService.initModal();
-    // this.angular2MaterializeService.initParallax();
-    // this.angular2MaterializeService.initPushpin();
-    // this.angular2MaterializeService.initScrollSpy();
-    // this.angular2MaterializeService.initSelect();
-    // this.angular2MaterializeService.initSidenav();
-    // this.angular2MaterializeService.initSlider();
-    // this.angular2MaterializeService.initTabs();
-    // this.angular2MaterializeService.initTapTarget();
-    // this.angular2MaterializeService.initTooltip();
-    // this.angular2MaterializeService.toast();
+    // this.angular2MaterializeService.initAutocomplete('#id, .class, element', {options});
+    // this.angular2MaterializeService.initCarousel('#id, .class, element', {options});
+    // this.angular2MaterializeService.initCharacterCount('#id, .class, element', {options});
+    // this.angular2MaterializeService.initCollapsible('#id, .class, element', {options});
+    // this.angular2MaterializeService.initDatePicker('#id, .class, element', {options});
+    // this.angular2MaterializeService.initDropdown('#id, .class, element', {options});
+    // this.angular2MaterializeService.initFloatingActionButton('#id, .class, element', {options});
+    // this.angular2MaterializeService.initMaterialboxed('#id, .class, element', {options});
+    // this.angular2MaterializeService.initModal('#id, .class, element', {options});
+    // this.angular2MaterializeService.initParallax('#id, .class, element', {options});
+    // this.angular2MaterializeService.initPushpin('#id, .class, element', {options});
+    // this.angular2MaterializeService.initScrollSpy('#id, .class, element', {options});
+    // this.angular2MaterializeService.initSelect('#id, .class, element', {options});
+    // this.angular2MaterializeService.initSidenav('#id, .class, element', {options});
+    // this.angular2MaterializeService.initSlider('#id, .class, element', {options});
+    // this.angular2MaterializeService.initTabs('#id, .class, element', {options});
+    // this.angular2MaterializeService.initTapTarget('#id, .class, element', {options});
+    // this.angular2MaterializeService.initTooltip('#id, .class, element', {options});
+    // this.angular2MaterializeService.toast({options});
     // this.angular2MaterializeService.updateTextFields();
   }
 }
+```
+
+## TypeScript (JavaScript section for materializecss.com)
+### AutoInit
+Auto Init allows you to initialize all of the Materialize Components with a single function call that are currently 
+rendered in the angular view. It is important to note that you cannot pass in options using this method.
+
+```typescript
+constructor(private angular2MaterializeService: Angular2MaterializeV1Service) {}
+
+public ngAfterViewInit(): void {
+  this.angular2MaterializeService.autoInit();
+}
+```
+
+### Carousel
+```typescript
+// initialize a single carousel with an id
+this.angular2MaterializeService.initCarousel('#carousel');
+
+// initialize all carousels with class .carousel
+this.angular2MaterializeService.initCarousel('.carousel');
+
+// initialization with options
+this.angular2MaterializeService.initCarousel('.carousel', {
+  // insert options here
+});
 ```
