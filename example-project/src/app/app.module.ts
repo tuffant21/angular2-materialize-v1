@@ -22,6 +22,7 @@ import {ProjectSetupComponent} from './components/project-setup/project-setup.co
 import { UsingAngular2MaterializeV1Component } from './components/using-angular2-materialize-v1/using-angular2-materialize-v1.component';
 import { AboutComponent } from './components/about/about.component';
 import { DonateComponent } from './components/donate/donate.component';
+import { NavTitleComponent } from './nav-title/nav-title.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DonateComponent } from './components/donate/donate.component';
     TooltipComponent,
     UsingAngular2MaterializeV1Component,
     AboutComponent,
-    DonateComponent
+    DonateComponent,
+    NavTitleComponent
   ],
   imports: [
     BrowserModule,

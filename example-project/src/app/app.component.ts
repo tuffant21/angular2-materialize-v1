@@ -51,6 +51,6 @@ export class AppComponent implements AfterViewInit {
 
   public ngAfterViewInit() {
     this.sidenavInstance = this.angular2MaterializeService.initSidenav('.sidenav');
-    this.collapsibleInstance = this.angular2MaterializeService.initCollapsible('.collapsible')[0];
+    this.collapsibleInstance = this.angular2MaterializeService.initCollapsible('#nav-collapsible');
   }
 }
