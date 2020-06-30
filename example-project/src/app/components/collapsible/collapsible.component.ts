@@ -14,6 +14,11 @@ export class CollapsibleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.angular2MaterializeService.initCollapsible('#collapsible1');
+    console.log(this.angular2MaterializeService.autoInit());
+    // console.log(this.angular2MaterializeService.initCollapsible('#collapsible1'));
+    // this.angular2MaterializeService.initCollapsible('#accordian');
+    // this.angular2MaterializeService.initCollapsible('#expandable', {
+    //   accordion: false
+    // });
   }
 }

@@ -18,6 +18,123 @@
             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
           </li>
         </ul>
+<pre><code class="language-html">&lt;ul class=&quot;collapsible&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;collapsible-header&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;filter_drama&lt;/i&gt;First&lt;/div&gt;
+    &lt;div class=&quot;collapsible-body&quot;&gt;&lt;span&gt;Lorem ipsum dolor sit amet.&lt;/span&gt;&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;collapsible-header&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;place&lt;/i&gt;Second&lt;/div&gt;
+    &lt;div class=&quot;collapsible-body&quot;&gt;&lt;span&gt;Lorem ipsum dolor sit amet.&lt;/span&gt;&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;collapsible-header&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;whatshot&lt;/i&gt;Third&lt;/div&gt;
+    &lt;div class=&quot;collapsible-body&quot;&gt;&lt;span&gt;Lorem ipsum dolor sit amet.&lt;/span&gt;&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+        <h2>Initialization</h2>
+<pre><code class="language-javascript">// initialize a single collapsible with an id
+var instance = this.angular2MaterializeService.initCollapsible('#collapsible');
+
+// initialize all collapsibles with class .collapsible
+var instances = this.angular2MaterializeService.initCollapsible('.collapsible');
+
+// initialization with options
+var instances = this.angular2MaterializeService.initCollapsible('.collapsible', {{'{'}}
+  // insert options here
+});</code></pre>
+
+        <h2>Options, Methods, and Properties</h2>
+        <p>For a full list of options, methods, and properties, visit
+          <a href="https://materializecss.com/collapsible.html" target="_blank">materialize.css/carousel.html</a>.</p>
+
+        <h2>Collapsible Types</h2>
+        <p>There are two ways a collapsible can behave. It can either allow multiple sections to stay open, or it can
+          only allow one section to stay open at a time, which is called an accordion. See below for a demo of each
+          type.</p>
+        <div class="row">
+          <div class="col s12 m3">
+            <h5 class="light">Accordion</h5>
+          </div>
+          <div class="col s12 m9">
+            <ul id="accordian" class="collapsible">
+              <li>
+                <div class="collapsible-header" tabindex="0">
+                  <i class="material-icons">filter_drama</i>First</div>
+                <div class="collapsible-body">
+                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. </span>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header" tabindex="0">
+                  <i class="material-icons">place</i>Second</div>
+                <div class="collapsible-body">
+                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</span>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header" tabindex="0">
+                  <i class="material-icons">whatshot</i>Third</div>
+                <div class="collapsible-body">
+                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col s12 m9 offset-m3">
+            <span>This is default behavior.</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m3">
+            <h5 class="light">Expandable</h5>
+          </div>
+          <div class="col s12 m9">
+            <ul id="expandable" class="collapsible expandable">
+              <li class="">
+                <div class="collapsible-header" tabindex="0">
+                  <i class="material-icons">filter_drama</i>First</div>
+                <div class="collapsible-body" style="">
+                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</span>
+                </div>
+              </li>
+              <li class="">
+                <div class="collapsible-header" tabindex="0">
+                  <i class="material-icons">place</i>Second</div>
+                <div class="collapsible-body" style="">
+                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</span>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header" tabindex="0">
+                  <i class="material-icons">whatshot</i>Third</div>
+                <div class="collapsible-body">
+                  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col s12 m9 offset-m3">
+<pre><code class="language-html">&lt;ul class=&quot;collapsible expandable&quot;&gt;</code></pre>
+<pre><code class="language-javascript">var instances = this.angular2MaterializeService.initCollapsible('.collapsible', {{'{'}}
+  accordion: false
+});</code></pre>
+          </div>
+        </div>
 
       </div>
     </div>
