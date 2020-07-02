@@ -1,5 +1,39 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {isPlatformServer} from '@angular/common';
+import {
+  IAutocomplete,
+  ICarousel,
+  ICharacterCounter,
+  IChips,
+  ICollapsible,
+  IDatepicker,
+  IDropdown,
+  IFloatingActionButton,
+  IMaterialbox,
+  IModal,
+  IParallax,
+  IPushpin,
+  IScrollspy,
+  ISelect,
+  ISidenav,
+  ISlider,
+  ITabs,
+  ITapTarget, IToast, ITooltip
+} from './IInstance';
+import {
+  IAutocompleteOptions,
+  ICarouselOptions,
+  IChipsOptions,
+  IDatepickerOptions,
+  IDropdownOptions,
+  IFloatingActionButtonOptions,
+  IMaterialboxOptions,
+  IModalOptions,
+  IParallaxOptions,
+  IPushpinOptions,
+  IScrollspyOptions,
+  ISelectOptions, ISidenavOptions, ISliderOptions, ITabsOptions, ITapTargetOptions, ITooltipOptions
+} from './IOptions';
 
 declare var M: any; // materialize
 
@@ -37,13 +71,13 @@ export class Angular2MaterializeV1Service {
     }
   }
 
-  private static getElements(elms: string): NodeListOf<HTMLElement> | HTMLElement {
-    if (elms.charAt(0) === '#') {
-      elms = elms.replace('#', '');
-      return document.getElementById(elms);
+  private static getElements(elements: string): NodeListOf<HTMLElement> | HTMLElement {
+    if (elements.charAt(0) === '#') {
+      elements = elements.replace('#', '');
+      return document.getElementById(elements);
     }
 
-    return document.querySelectorAll(elms);
+    return document.querySelectorAll(elements);
   }
 
   private static removeAutoScroll(instance: any) {
@@ -81,7 +115,7 @@ export class Angular2MaterializeV1Service {
     return M.AutoInit();
   }
 
-  public destroyCarousel(instances: Array<any> | any): void {
+  public destroyCarousel(instances: Array<ICarousel> | ICarousel): void {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -106,23 +140,23 @@ export class Angular2MaterializeV1Service {
   }
 
   // tslint:disable-next-line:ban-types max-line-length
-  public initAutocomplete(elms: string, opts?: { data?: any, limit?: number, onAutocomplete?: Function, minLength?: number, sortFunction?: Function }): Array<any> | any
+  public initAutocomplete(elements: string, options?: IAutocompleteOptions): Array<IAutocomplete> | IAutocomplete
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Autocomplete.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Autocomplete.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
   // tslint:disable-next-line:max-line-length ban-types
-  public initCarousel(elms: string, opts?: { duration?: number, dist?: number, shift?: number, padding?: number, numVisible?: number, fullWidth?: boolean, indicators?: boolean, noWrap?: boolean, onCycleTo?: Function }): Array<any> | any
+  public initCarousel(elements: string, options?: ICarouselOptions): Array<ICarousel> | ICarousel
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    const instances = M.Carousel.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    const instances = M.Carousel.init(Angular2MaterializeV1Service.getElements(elements), options);
 
     if (Array.isArray(instances)) {
       for (const instance of instances) {
@@ -135,176 +169,186 @@ export class Angular2MaterializeV1Service {
     return instances;
   }
 
-  public initCharacterCount(elms): Array<any> | any
+  public initCharacterCount(elements: string): Array<ICharacterCounter> | ICharacterCounter
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.CharacterCounter.init(Angular2MaterializeV1Service.getElements(elms));
+    return M.CharacterCounter.init(Angular2MaterializeV1Service.getElements(elements));
   }
 
-  public initCollapsible(elms: string, opts?: any): Array<any> | any
+  public initChips(elements: string, options?: IChipsOptions): Array<IChips> | IChips
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Collapsible.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Chips.init(Angular2MaterializeV1Service.getElements(elements));
   }
 
-  public initDatePicker(elms: string, opts?: any): Array<any> | any
+  public initCollapsible(elements: string, options?: ICarouselOptions): Array<ICollapsible> | ICollapsible
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Datepicker.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Collapsible.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initDropdown(elms: string, opts?: any): Array<any> | any
+  public initDatepicker(elements: string, options?: IDatepickerOptions): Array<IDatepicker> | IDatepicker
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Dropdown.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Datepicker.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initFloatingActionButton(elms: string, opts?: any): Array<any> | any
+  public initDropdown(elements: string, options?: IDropdownOptions): Array<IDropdown> | IDropdown
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.FloatingActionButton.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Dropdown.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initMaterialboxed(elms: string, opts?: any): Array<any> | any
+  public initFloatingActionButton(elements: string, options?: IFloatingActionButtonOptions)
+    : Array<IFloatingActionButton> | IFloatingActionButton
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Materialbox.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.FloatingActionButton.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initModal(elms: string, opts?: any): Array<any> | any
+  public initMaterialbox(elements: string, options?: IMaterialboxOptions): Array<IMaterialbox> | IMaterialbox
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Modal.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Materialbox.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initParallax(elms: string, opts?: any): Array<any> | any
+  public initModal(elements: string, options?: IModalOptions): Array<IModal> | IModal
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Parallax.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Modal.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initPushpin(elms: string, opts?: any): Array<any> | any
+  public initParallax(elements: string, options?: IParallaxOptions): Array<IParallax> | IParallax
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    if (!opts) {
-      opts = {};
-    }
-    const elements = Angular2MaterializeV1Service.getElements(elms);
+    return M.Parallax.init(Angular2MaterializeV1Service.getElements(elements), options);
+  }
 
-    if (elements instanceof NodeList && !opts.offset) {
+  public initPushpin(elements: string, options?: IPushpinOptions): Array<IPushpin> | IPushpin
+  {
+    if (isPlatformServer(this.platformId)) {
+      return null;
+    }
+
+    if (!options) {
+      options = {};
+    }
+    const elements = Angular2MaterializeV1Service.getElements(elements);
+
+    if (elements instanceof NodeList && !options.offset) {
       const ret = [];
 
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < elements.length; ++i) {
-        opts.offset = elements[i].offsetTop;
-        ret.push(M.Pushpin.init(elements[i], opts));
+        options.offset = elements[i].offsetTop;
+        ret.push(M.Pushpin.init(elements[i], options));
       }
 
       return ret;
-    } else if (elements instanceof HTMLElement && !opts.offset) {
-      opts.offset = elements.offsetTop;
-      return M.Pushpin.init(elements, opts);
+    } else if (elements instanceof HTMLElement && !options.offset) {
+      options.offset = elements.offsetTop;
+      return M.Pushpin.init(elements, options);
     } else {
-      return M.Pushpin.init(elements, opts);
+      return M.Pushpin.init(elements, options);
     }
   }
 
-  public initScrollSpy(elms: string, opts?: any): Array<any> | any
+  public initScrollSpy(elements: string, options?: IScrollspyOptions): Array<IScrollspy> | IScrollspy
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.ScrollSpy.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.ScrollSpy.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSelect(elms: string, opts?: any): Array<any> | any
+  public initSelect(elements: string, options?: ISelectOptions): Array<ISelect> | ISelect
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.FormSelect.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.FormSelect.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSidenav(elms: string, opts?: any): Array<any> | any
+  public initSidenav(elements: string, options?: ISidenavOptions): Array<ISidenav> | ISidenav
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Sidenav.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Sidenav.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSlider(elms: string, opts?: any): Array<any> | any
+  public initSlider(elements: string, options?: ISliderOptions): Array<ISlider> | ISlider
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Slider.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Slider.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTabs(elms: string, opts?: any): Array<any> | any
+  public initTabs(elements: string, options?: ITabsOptions): Array<ITabs> | ITabs
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Tabs.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Tabs.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTapTarget(elms: string, opts?: any): Array<any> | any
+  public initTapTarget(elements: string, options?: ITapTargetOptions): Array<ITapTarget> | ITapTarget
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.TapTarget.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.TapTarget.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTooltip(elms: string, opts?: any): Array<any> | any
+  public initTooltip(elements: string, options?: ITooltipOptions): Array<ITooltip> | ITooltip
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elms), opts);
+    return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public toast(opts) {
+  public toast(options: ITooltipOptions): IToast {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.toast(opts);
+    return M.toast(options);
   }
 
   public updateTextFields(): void
