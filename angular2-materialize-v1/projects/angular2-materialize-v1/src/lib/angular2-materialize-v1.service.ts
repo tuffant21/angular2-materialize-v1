@@ -13,7 +13,7 @@ import {
   IModal,
   IParallax,
   IPushpin,
-  IScrollspy,
+  IScrollSpy,
   ISelect,
   ISidenav,
   ISlider,
@@ -31,7 +31,7 @@ import {
   IModalOptions,
   IParallaxOptions,
   IPushpinOptions,
-  IScrollspyOptions,
+  IScrollSpyOptions,
   ISelectOptions, ISidenavOptions, ISliderOptions, ITabsOptions, ITapTargetOptions, ITooltipOptions
 } from './IOptions';
 
@@ -140,7 +140,7 @@ export class Angular2MaterializeV1Service {
   }
 
   // tslint:disable-next-line:ban-types max-line-length
-  public initAutocomplete(elements: string, options?: IAutocompleteOptions): Array<IAutocomplete> | IAutocomplete
+  public initAutocomplete(elements: string, options: IAutocompleteOptions = {}): Array<IAutocomplete> | IAutocomplete
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -150,7 +150,7 @@ export class Angular2MaterializeV1Service {
   }
 
   // tslint:disable-next-line:max-line-length ban-types
-  public initCarousel(elements: string, options?: ICarouselOptions): Array<ICarousel> | ICarousel
+  public initCarousel(elements: string, options: ICarouselOptions = {}): Array<ICarousel> | ICarousel
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -178,16 +178,16 @@ export class Angular2MaterializeV1Service {
     return M.CharacterCounter.init(Angular2MaterializeV1Service.getElements(elements));
   }
 
-  public initChips(elements: string, options?: IChipsOptions): Array<IChips> | IChips
+  public initChips(elements: string, options: IChipsOptions = {}): Array<IChips> | IChips
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    return M.Chips.init(Angular2MaterializeV1Service.getElements(elements));
+    return M.Chips.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initCollapsible(elements: string, options?: ICarouselOptions): Array<ICollapsible> | ICollapsible
+  public initCollapsible(elements: string, options: ICarouselOptions = {}): Array<ICollapsible> | ICollapsible
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -196,7 +196,7 @@ export class Angular2MaterializeV1Service {
     return M.Collapsible.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initDatepicker(elements: string, options?: IDatepickerOptions): Array<IDatepicker> | IDatepicker
+  public initDatepicker(elements: string, options: IDatepickerOptions = {}): Array<IDatepicker> | IDatepicker
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -205,7 +205,7 @@ export class Angular2MaterializeV1Service {
     return M.Datepicker.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initDropdown(elements: string, options?: IDropdownOptions): Array<IDropdown> | IDropdown
+  public initDropdown(elements: string, options: IDropdownOptions = {}): Array<IDropdown> | IDropdown
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -214,7 +214,7 @@ export class Angular2MaterializeV1Service {
     return M.Dropdown.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initFloatingActionButton(elements: string, options?: IFloatingActionButtonOptions)
+  public initFloatingActionButton(elements: string, options: IFloatingActionButtonOptions = {})
     : Array<IFloatingActionButton> | IFloatingActionButton
   {
     if (isPlatformServer(this.platformId)) {
@@ -224,7 +224,7 @@ export class Angular2MaterializeV1Service {
     return M.FloatingActionButton.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initMaterialbox(elements: string, options?: IMaterialboxOptions): Array<IMaterialbox> | IMaterialbox
+  public initMaterialbox(elements: string, options: IMaterialboxOptions = {}): Array<IMaterialbox> | IMaterialbox
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -233,7 +233,7 @@ export class Angular2MaterializeV1Service {
     return M.Materialbox.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initModal(elements: string, options?: IModalOptions): Array<IModal> | IModal
+  public initModal(elements: string, options: IModalOptions = {}): Array<IModal> | IModal
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -242,7 +242,7 @@ export class Angular2MaterializeV1Service {
     return M.Modal.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initParallax(elements: string, options?: IParallaxOptions): Array<IParallax> | IParallax
+  public initParallax(elements: string, options: IParallaxOptions = {}): Array<IParallax> | IParallax
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -251,36 +251,16 @@ export class Angular2MaterializeV1Service {
     return M.Parallax.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initPushpin(elements: string, options?: IPushpinOptions): Array<IPushpin> | IPushpin
+  public initPushpin(elements: string, options: IPushpinOptions = {}): Array<IPushpin> | IPushpin
   {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
 
-    if (!options) {
-      options = {};
-    }
-    const elements = Angular2MaterializeV1Service.getElements(elements);
-
-    if (elements instanceof NodeList && !options.offset) {
-      const ret = [];
-
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < elements.length; ++i) {
-        options.offset = elements[i].offsetTop;
-        ret.push(M.Pushpin.init(elements[i], options));
-      }
-
-      return ret;
-    } else if (elements instanceof HTMLElement && !options.offset) {
-      options.offset = elements.offsetTop;
-      return M.Pushpin.init(elements, options);
-    } else {
-      return M.Pushpin.init(elements, options);
-    }
+    return M.Pushpin.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initScrollSpy(elements: string, options?: IScrollspyOptions): Array<IScrollspy> | IScrollspy
+  public initScrollSpy(elements: string, options: IScrollSpyOptions = {}): Array<IScrollSpy> | IScrollSpy
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -289,7 +269,7 @@ export class Angular2MaterializeV1Service {
     return M.ScrollSpy.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSelect(elements: string, options?: ISelectOptions): Array<ISelect> | ISelect
+  public initSelect(elements: string, options: ISelectOptions = {}): Array<ISelect> | ISelect
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -298,7 +278,7 @@ export class Angular2MaterializeV1Service {
     return M.FormSelect.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSidenav(elements: string, options?: ISidenavOptions): Array<ISidenav> | ISidenav
+  public initSidenav(elements: string, options: ISidenavOptions = {}): Array<ISidenav> | ISidenav
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -307,7 +287,7 @@ export class Angular2MaterializeV1Service {
     return M.Sidenav.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSlider(elements: string, options?: ISliderOptions): Array<ISlider> | ISlider
+  public initSlider(elements: string, options: ISliderOptions = {}): Array<ISlider> | ISlider
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -316,7 +296,7 @@ export class Angular2MaterializeV1Service {
     return M.Slider.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTabs(elements: string, options?: ITabsOptions): Array<ITabs> | ITabs
+  public initTabs(elements: string, options: ITabsOptions = {}): Array<ITabs> | ITabs
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -325,7 +305,7 @@ export class Angular2MaterializeV1Service {
     return M.Tabs.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTapTarget(elements: string, options?: ITapTargetOptions): Array<ITapTarget> | ITapTarget
+  public initTapTarget(elements: string, options: ITapTargetOptions = {}): Array<ITapTarget> | ITapTarget
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -334,7 +314,7 @@ export class Angular2MaterializeV1Service {
     return M.TapTarget.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTooltip(elements: string, options?: ITooltipOptions): Array<ITooltip> | ITooltip
+  public initTooltip(elements: string, options: ITooltipOptions = {}): Array<ITooltip> | ITooltip
   {
     if (isPlatformServer(this.platformId)) {
       return null;
@@ -343,7 +323,7 @@ export class Angular2MaterializeV1Service {
     return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public toast(options: ITooltipOptions): IToast {
+  public toast(options: ITooltipOptions = {}): IToast {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
