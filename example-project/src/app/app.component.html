@@ -5,73 +5,47 @@
       <p>angular materialize v1</p>
     </li>
     <li class="divider"></li>
-    <li [ngClass]="{'active': currentRoute === '/about'}">
+    <li routerLinkActive="active">
       <a routerLink="/about" class="sidenav-close">About</a>
     </li>
-    <li [ngClass]="{'active': currentRoute === '/donate'}">
+    <li routerLinkActive="active">
       <a routerLink="/donate" class="sidenav-close">Donate</a>
     </li>
     <li>
       <ul id="nav-collapsible" class="collapsible collapsible-accordion">
-        <li [ngClass]="{'active': isGettingStartedActive}">
+        <li routerLinkActive="active">
           <a class="collapsible-header" tabindex="0">Getting Started</a>
           <div class="collapsible-body">
             <ul>
-              <li [ngClass]="{'active': currentRoute === '/project-setup'}">
+              <li routerLinkActive="active">
                 <a routerLink="/project-setup" class="sidenav-close">Project Setup</a>
               </li>
-              <li [ngClass]="{'active': currentRoute === '/using-angular2-materialize-v1'}">
+              <li routerLinkActive="active">
                 <a routerLink="/using-angular2-materialize-v1" class="sidenav-close">Using angular2-materialize-v1</a>
               </li>
             </ul>
           </div>
         </li>
-        <li [ngClass]="{'active': isJavaScriptActive}">
+        <li routerLinkActive="active">
           <a class="collapsible-header" tabindex="0">JavaScript</a>
           <div class="collapsible-body">
             <ul>
-              <li [ngClass]="{'active': currentRoute === '/auto-init'}">
-                <a routerLink="/auto-init" class="sidenav-close">Auto Init</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/carousel'}">
-                <a routerLink="/carousel" class="sidenav-close">Carousel</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/collapsible'}">
-                <a routerLink="/collapsible" class="sidenav-close">Collapsible</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/dropdown'}">
-                <a routerLink="/dropdown" class="sidenav-close">Dropdown</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/feature-discovery'}">
+              <li routerLinkActive="active"><a routerLink="/auto-init" class="sidenav-close">Auto Init</a></li>
+              <li routerLinkActive="active"><a routerLink="/carousel" class="sidenav-close">Carousel</a></li>
+              <li routerLinkActive="active"><a routerLink="/collapsible" class="sidenav-close">Collapsible</a></li>
+              <li routerLinkActive="active"><a routerLink="/dropdown" class="sidenav-close">Dropdown</a></li>
+              <li routerLinkActive="active">
                 <a routerLink="/feature-discovery" class="sidenav-close">Feature Discovery</a>
               </li>
-              <li [ngClass]="{'active': currentRoute === '/media'}">
-                <a routerLink="/media" class="sidenav-close">Media</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/modal'}">
-                <a routerLink="/modal" class="sidenav-close">Modal</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/parallax'}">
-                <a routerLink="/parallax" class="sidenav-close">Parallax</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/pushpin'}">
-                <a routerLink="/pushpin" class="sidenav-close">Pushpin</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/scrollspy'}">
-                <a routerLink="/scrollspy" class="sidenav-close">Scrollspy</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/sidenav'}">
-                <a routerLink="/sidenav" class="sidenav-close">Sidenav</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/tabs'}">
-                <a routerLink="/tabs" class="sidenav-close">Tabs</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/toast'}">
-                <a routerLink="/toast" class="sidenav-close">Toast</a>
-              </li>
-              <li [ngClass]="{'active': currentRoute === '/tooltip'}">
-                <a routerLink="/tooltip" class="sidenav-close">Tooltip</a>
-              </li>
+              <li routerLinkActive="active"><a routerLink="/media" class="sidenav-close">Media</a></li>
+              <li routerLinkActive="active"><a routerLink="/modal" class="sidenav-close">Modal</a></li>
+              <li routerLinkActive="active"><a routerLink="/parallax" class="sidenav-close">Parallax</a></li>
+              <li routerLinkActive="active"><a routerLink="/pushpin" class="sidenav-close">Pushpin</a></li>
+              <li routerLinkActive="active"><a routerLink="/scrollspy" class="sidenav-close">Scrollspy</a></li>
+              <li routerLinkActive="active"><a routerLink="/sidenav" class="sidenav-close">Sidenav</a></li>
+              <li routerLinkActive="active"><a routerLink="/tabs" class="sidenav-close">Tabs</a></li>
+              <li routerLinkActive="active"><a routerLink="/toast" class="sidenav-close">Toast</a></li>
+              <li routerLinkActive="active"><a routerLink="/tooltip" class="sidenav-close">Tooltip</a></li>
             </ul>
           </div>
         </li>

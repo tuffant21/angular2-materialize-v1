@@ -13,7 +13,6 @@ declare var Prism;
 })
 export class AppComponent implements AfterViewInit {
 
-  public currentRoute: string;
   public title = 'example-project';
   public isGettingStartedActive: boolean;
   public isJavaScriptActive: boolean;
@@ -27,14 +26,14 @@ export class AppComponent implements AfterViewInit {
         // syntax highlighting
         Prism.highlightAll();
 
-        this.currentRoute = evt.urlAfterRedirects;
-        this.isGettingStartedActive = this.currentRoute === '/project-setup'
-          || this.currentRoute === '/using-angular2-materialize-v1';
+        const currentRoute = evt.urlAfterRedirects;
+        this.isGettingStartedActive = currentRoute === '/project-setup'
+          || currentRoute === '/using-angular2-materialize-v1';
 
-        this.isJavaScriptActive = this.currentRoute !== '/project-setup'
-          && this.currentRoute !== '/using-angular2-materialize-v1'
-          && this.currentRoute !== '/about'
-          && this.currentRoute !== '/donate';
+        this.isJavaScriptActive = currentRoute !== '/project-setup'
+          && currentRoute !== '/using-angular2-materialize-v1'
+          && currentRoute !== '/about'
+          && currentRoute !== '/donate';
 
         if (this.isGettingStartedActive) {
           this.collapsibleInstance.open(0);

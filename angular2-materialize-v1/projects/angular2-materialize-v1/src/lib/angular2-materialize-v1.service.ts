@@ -22,7 +22,7 @@ import {
 import {
   IAutocompleteOptions,
   ICarouselOptions,
-  IChipsOptions,
+  IChipsOptions, ICollapsibleOptions,
   IDatepickerOptions,
   IDropdownOptions,
   IFloatingActionButtonOptions,
@@ -193,7 +193,7 @@ export class Angular2MaterializeV1Service {
     return M.Chips.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initCollapsible(elements: string, options: ICarouselOptions = {}): Array<ICollapsible> | ICollapsible
+  public initCollapsible(elements: string, options: ICollapsibleOptions = {}): Array<ICollapsible> | ICollapsible
   {
     if (isPlatformServer(this.platformId)) {
       return null;
