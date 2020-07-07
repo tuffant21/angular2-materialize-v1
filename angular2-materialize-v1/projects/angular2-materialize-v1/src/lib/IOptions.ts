@@ -146,16 +146,68 @@ export interface ISelectOptions {
   dropdownOptions?: IDropdownOptions;
 }
 
-export interface ISidenavOptions {}
+export interface ISidenavOptions {
+  edge?: string;
+  draggable?: boolean;
+  inDuration?: number;
+  outDuration?: number;
+  onOpenStart?: (el: HTMLElement) => void;
+  onOpenEnd?: (el: HTMLElement) => void;
+  onCloseStart?: (el: HTMLElement) => void;
+  onCloseEnd?: (el: HTMLElement) => void;
+  preventScrolling?: boolean;
+}
 
-export interface ISliderOptions {}
+export interface ITabsOptions {
+  duration?: number;
+  onShow?: (activeElement: HTMLElement) => void;
+  swipeable?: boolean;
+  responsiveThreshold?: number;
+}
 
-export interface ITabsOptions {}
+export interface ITapTargetOptions {
+  onOpen?: (origin: HTMLElement) => void;
+  onClose?: () => void;
+}
 
-export interface ITapTargetOptions {}
+export interface ITimepickerOptions {
+  duration?: number;
+  container?: string;
+  showClearBtn?: boolean;
+  defaultTime?: string;
+  fromNow?: number;
+  i18n?: {
+    cancel?: string,
+    clear?: string,
+    done?: string,
+  };
+  autoClose?: boolean;
+  twelveHour?: boolean;
+  vibrate?: boolean;
+  onOpenStart?: () => void;
+  onOpenEnd?: () => void;
+  onCloseStart?: () => void;
+  onCloseEnd?: () => void;
+  onSelect?: () => void;
+}
 
-export interface ITimepickerOptions {}
+export interface IToastOptions {
+  html?: string;
+  displayLength?: number;
+  inDuration?: number;
+  outDuration?: number;
+  classes?: string;
+  completeCallback?: () => void;
+  activationPercent?: number;
+}
 
-export interface IToastOptions {}
-
-export interface ITooltipOptions {}
+export interface ITooltipOptions {
+  exitDelay?: number;
+  enterDelay?: number;
+  html?: string;
+  margin?: number;
+  inDuration?: number;
+  outDuration?: number;
+  position?: string;
+  transitionMovement?: number;
+}

@@ -185,18 +185,16 @@ export interface ISelect {
 
 export interface ISidenav {
   // methods
+  open: () => void;
+  close: () => void;
+  destroy: () => void;
 
   // properties
   el: HTMLElement;
   options: IOptions.ISidenavOptions;
-}
-
-export interface ISlider {
-  // methods
-
-  // properties
-  el: HTMLElement;
-  options: IOptions.ISliderOptions;
+  isOpen: boolean;
+  isFixed: boolean;
+  isDragged: boolean;
 }
 
 export interface ITabs {
@@ -209,32 +207,50 @@ export interface ITabs {
 
 export interface ITapTarget {
   // methods
+  open: () => void;
+  close: () => void;
+  destroy: () => void;
 
   // properties
   el: HTMLElement;
   options: IOptions.ITapTargetOptions;
+  isOpen: boolean;
 }
 
 export interface ITimepicker {
   // methods
+  open: () => void;
+  close: () => void;
+  showView: (view: string | 'hours' | 'minutes') => void;
+  destroy: () => void;
 
   // properties
   el: HTMLElement;
   options: IOptions.ITimepickerOptions;
+  isOpen: boolean;
+  time: string;
 }
 
 export interface IToast {
   // methods
+  dismiss: () => void;
 
   // properties
   el: HTMLElement;
   options: IOptions.IToastOptions;
+  panning: boolean;
+  timeRemaining: number;
 }
 
 export interface ITooltip {
   // methods
+  open: () => void;
+  close: () => void;
+  destroy: () => void;
 
   // properties
   el: HTMLElement;
   options: IOptions.ITooltipOptions;
+  isOpen: boolean;
+  isHovered: boolean;
 }

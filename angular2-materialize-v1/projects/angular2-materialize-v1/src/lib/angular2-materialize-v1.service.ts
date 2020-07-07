@@ -16,9 +16,8 @@ import {
   IScrollSpy,
   ISelect,
   ISidenav,
-  ISlider,
   ITabs,
-  ITapTarget, IToast, ITooltip
+  ITapTarget, ITimepicker, IToast, ITooltip
 } from './IInstance';
 import {
   IAutocompleteOptions,
@@ -32,7 +31,7 @@ import {
   IParallaxOptions,
   IPushpinOptions,
   IScrollSpyOptions,
-  ISelectOptions, ISidenavOptions, ISliderOptions, ITabsOptions, ITapTargetOptions, ITooltipOptions
+  ISelectOptions, ISidenavOptions, ITabsOptions, ITapTargetOptions, ITimepickerOptions, ITooltipOptions
 } from './IOptions';
 
 declare var M: any; // materialize
@@ -43,10 +42,12 @@ declare var M: any; // materialize
 export class Angular2MaterializeV1Service {
 
   // tslint:disable-next-line:ban-types
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object)
+  {
   }
 
-  private static carouselMouseOverTouchStart() {
+  private static carouselMouseOverTouchStart()
+  {
     const instance = M.Carousel.getInstance(this);
     if (!instance) {
       return;
@@ -58,7 +59,8 @@ export class Angular2MaterializeV1Service {
     }
   }
 
-  private static carouselMouseOutTouchEnd() {
+  private static carouselMouseOutTouchEnd()
+  {
     const instance = M.Carousel.getInstance(this);
     if (!instance) {
       return;
@@ -71,7 +73,8 @@ export class Angular2MaterializeV1Service {
     }
   }
 
-  private static getElements(elements: string): NodeListOf<HTMLElement> | HTMLElement {
+  private static getElements(elements: string): NodeListOf<HTMLElement> | HTMLElement
+  {
     if (elements.charAt(0) === '#') {
       elements = elements.replace('#', '');
       return document.getElementById(elements);
@@ -80,7 +83,8 @@ export class Angular2MaterializeV1Service {
     return document.querySelectorAll(elements);
   }
 
-  private static removeAutoScroll(instance: any) {
+  private static removeAutoScroll(instance: any)
+  {
     if (instance.autoScrollIntervalId) {
       window.clearInterval(instance.autoScrollIntervalId);
       instance.autoScrollIntervalId = undefined;
@@ -92,7 +96,8 @@ export class Angular2MaterializeV1Service {
     instance.el.removeEventListener('touchend', Angular2MaterializeV1Service.carouselMouseOutTouchEnd);
   }
 
-  private addAutoScroll(instance: any) {
+  private addAutoScroll(instance: any)
+  {
     if (!instance.options.autoScroll) {
       return;
     }
@@ -107,7 +112,8 @@ export class Angular2MaterializeV1Service {
     instance.el.addEventListener('touchend', Angular2MaterializeV1Service.carouselMouseOutTouchEnd, {passive: true});
   }
 
-  public autoInit(): void {
+  public autoInit(): void
+  {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -115,7 +121,8 @@ export class Angular2MaterializeV1Service {
     return M.AutoInit();
   }
 
-  public destroyCarousel(instances: Array<ICarousel> | ICarousel): void {
+  public destroyCarousel(instances: Array<ICarousel> | ICarousel): void
+  {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -131,7 +138,8 @@ export class Angular2MaterializeV1Service {
     }
   }
 
-  public dismissAllToasts(): void {
+  public dismissAllToasts(): void
+  {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -139,7 +147,6 @@ export class Angular2MaterializeV1Service {
     return M.Toast.dismissAll();
   }
 
-  // tslint:disable-next-line:ban-types max-line-length
   public initAutocomplete(elements: string, options: IAutocompleteOptions = {}): Array<IAutocomplete> | IAutocomplete
   {
     if (isPlatformServer(this.platformId)) {
@@ -149,7 +156,6 @@ export class Angular2MaterializeV1Service {
     return M.Autocomplete.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  // tslint:disable-next-line:max-line-length ban-types
   public initCarousel(elements: string, options: ICarouselOptions = {}): Array<ICarousel> | ICarousel
   {
     if (isPlatformServer(this.platformId)) {
@@ -287,15 +293,6 @@ export class Angular2MaterializeV1Service {
     return M.Sidenav.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSlider(elements: string, options: ISliderOptions = {}): Array<ISlider> | ISlider
-  {
-    if (isPlatformServer(this.platformId)) {
-      return null;
-    }
-
-    return M.Slider.init(Angular2MaterializeV1Service.getElements(elements), options);
-  }
-
   public initTabs(elements: string, options: ITabsOptions = {}): Array<ITabs> | ITabs
   {
     if (isPlatformServer(this.platformId)) {
@@ -314,6 +311,15 @@ export class Angular2MaterializeV1Service {
     return M.TapTarget.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
+  public initTimepicker(elements: string, options: ITimepickerOptions = {}): Array<ITimepicker> | ITimepicker
+  {
+    if (isPlatformServer(this.platformId)) {
+      return null;
+    }
+
+    return M.Timepicker.init(Angular2MaterializeV1Service.getElements(elements), options);
+  }
+
   public initTooltip(elements: string, options: ITooltipOptions = {}): Array<ITooltip> | ITooltip
   {
     if (isPlatformServer(this.platformId)) {
@@ -323,7 +329,8 @@ export class Angular2MaterializeV1Service {
     return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public toast(options: ITooltipOptions = {}): IToast {
+  public toast(options: ITooltipOptions = {}): IToast
+  {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
