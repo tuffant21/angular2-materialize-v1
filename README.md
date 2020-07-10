@@ -63,7 +63,7 @@ Step 2, inject it into your component using the constructor
 ```typescript
 constructor(private angular2MaterializeService: Angular2MaterializeV1Service) ...
 ```
-Step 3, have you exported component class implement `AfterViewInit`
+Step 3, have your component implement `AfterViewInit`
 ```typescript
 export class AppComponent implements AfterViewInit ...
 ```
