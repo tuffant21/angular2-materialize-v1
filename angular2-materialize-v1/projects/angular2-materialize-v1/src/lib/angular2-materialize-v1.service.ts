@@ -17,12 +17,16 @@ import {
   ISelect,
   ISidenav,
   ITabs,
-  ITapTarget, ITimepicker, IToast, ITooltip
+  ITapTarget,
+  ITimepicker,
+  IToast,
+  ITooltip
 } from './IInstance';
 import {
   IAutocompleteOptions,
   ICarouselOptions,
-  IChipsOptions, ICollapsibleOptions,
+  IChipsOptions,
+  ICollapsibleOptions,
   IDatepickerOptions,
   IDropdownOptions,
   IFloatingActionButtonOptions,
@@ -31,7 +35,12 @@ import {
   IParallaxOptions,
   IPushpinOptions,
   IScrollSpyOptions,
-  ISelectOptions, ISidenavOptions, ITabsOptions, ITapTargetOptions, ITimepickerOptions, ITooltipOptions
+  ISelectOptions,
+  ISidenavOptions,
+  ITabsOptions,
+  ITapTargetOptions,
+  ITimepickerOptions,
+  ITooltipOptions
 } from './IOptions';
 
 declare var M: any; // materialize
@@ -329,8 +338,7 @@ export class Angular2MaterializeV1Service {
     return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public toast(options: ITooltipOptions = {}): IToast
-  {
+  public toast(options: ITooltipOptions = {}): IToast {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -338,8 +346,15 @@ export class Angular2MaterializeV1Service {
     return M.toast(options);
   }
 
-  public updateTextFields(): void
-  {
+  public textareaAutoResize(): void {
+    if (isPlatformServer(this.platformId)) {
+      return null;
+    }
+
+    return M.textareaAutoResize();
+  }
+
+  public updateTextFields(): void {
     if (isPlatformServer(this.platformId)) {
       return null;
     }

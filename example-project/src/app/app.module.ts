@@ -19,10 +19,16 @@ import {TabsComponent} from './components/tabs/tabs.component';
 import {ToastComponent} from './components/toast/toast.component';
 import {TooltipComponent} from './components/tooltip/tooltip.component';
 import {ProjectSetupComponent} from './components/project-setup/project-setup.component';
-import { UsingAngular2MaterializeV1Component } from './components/using-angular2-materialize-v1/using-angular2-materialize-v1.component';
-import { AboutComponent } from './components/about/about.component';
-import { DonateComponent } from './components/donate/donate.component';
-import { NavTitleComponent } from './nav-title/nav-title.component';
+import {UsingAngular2MaterializeV1Component} from './components/using-angular2-materialize-v1/using-angular2-materialize-v1.component';
+import {AboutComponent} from './components/about/about.component';
+import {DonateComponent} from './components/donate/donate.component';
+import {NavTitleComponent} from './nav-title/nav-title.component';
+import {FloatingActionButtonComponent} from './floating-action-button/floating-action-button.component';
+import {AutocompleteComponent} from './autocomplete/autocomplete.component';
+import {ChipsComponent} from './chips/chips.component';
+import {PickersComponent} from './pickers/pickers.component';
+import {SelectComponent} from './select/select.component';
+import {TextInputsComponent} from './text-inputs/text-inputs.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,13 @@ import { NavTitleComponent } from './nav-title/nav-title.component';
     UsingAngular2MaterializeV1Component,
     AboutComponent,
     DonateComponent,
-    NavTitleComponent
+    NavTitleComponent,
+    FloatingActionButtonComponent,
+    AutocompleteComponent,
+    ChipsComponent,
+    PickersComponent,
+    SelectComponent,
+    TextInputsComponent
   ],
   imports: [
     BrowserModule,
