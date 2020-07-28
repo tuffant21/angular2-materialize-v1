@@ -1,16 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {SyntaxHighlighterService} from '../../syntax-highlighter.service';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnInit, AfterViewInit {
 
-  constructor() {
+  constructor(private syntaxHighlighterService: SyntaxHighlighterService) {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.syntaxHighlighterService.highlightAll();
   }
 
 }

@@ -3,9 +3,6 @@ import {Angular2MaterializeV1Service} from 'angular2-materialize-v1';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
 
-// syntax highlighting
-declare var Prism;
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,9 +18,6 @@ export class AppComponent implements AfterViewInit {
     this.router.events
       .pipe(filter((evt) => evt instanceof NavigationEnd))
       .subscribe((evt: NavigationEnd) => {
-        // syntax highlighting
-        Prism.highlightAll();
-
         switch (evt.urlAfterRedirects) {
           case '/project-setup':
           case '/using-angular2-materialize-v1':
