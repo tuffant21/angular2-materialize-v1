@@ -23,12 +23,12 @@ import {UsingAngular2MaterializeV1Component} from './components/using-angular2-m
 import {AboutComponent} from './components/about/about.component';
 import {DonateComponent} from './components/donate/donate.component';
 import {NavTitleComponent} from './nav-title/nav-title.component';
-import {FloatingActionButtonComponent} from './floating-action-button/floating-action-button.component';
-import {AutocompleteComponent} from './autocomplete/autocomplete.component';
-import {ChipsComponent} from './chips/chips.component';
-import {PickersComponent} from './pickers/pickers.component';
-import {SelectComponent} from './select/select.component';
-import {TextInputsComponent} from './text-inputs/text-inputs.component';
+import {FloatingActionButtonComponent} from './components/floating-action-button/floating-action-button.component';
+import {AutocompleteComponent} from './components/autocomplete/autocomplete.component';
+import {ChipsComponent} from './components/chips/chips.component';
+import {PickersComponent} from './components/pickers/pickers.component';
+import {SelectComponent} from './components/select/select.component';
+import {TextInputsComponent} from './components/text-inputs/text-inputs.component';
 
 @NgModule({
   declarations: [

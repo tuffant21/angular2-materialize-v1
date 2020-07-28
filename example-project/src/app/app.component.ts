@@ -14,8 +14,6 @@ declare var Prism;
 export class AppComponent implements AfterViewInit {
 
   public title = 'example-project';
-  public isGettingStartedActive: boolean;
-  public isJavaScriptActive: boolean;
   private sidenavInstance: any;
   private collapsibleInstance: any;
 
@@ -26,24 +24,39 @@ export class AppComponent implements AfterViewInit {
         // syntax highlighting
         Prism.highlightAll();
 
-        const currentRoute = evt.urlAfterRedirects;
-        this.isGettingStartedActive = currentRoute === '/project-setup'
-          || currentRoute === '/using-angular2-materialize-v1';
-
-        this.isJavaScriptActive = currentRoute !== '/project-setup'
-          && currentRoute !== '/using-angular2-materialize-v1'
-          && currentRoute !== '/about'
-          && currentRoute !== '/donate';
-
-        if (this.isGettingStartedActive) {
-          this.collapsibleInstance.open(0);
-        }
-        else if (this.isJavaScriptActive) {
-          this.collapsibleInstance.open(1);
-        }
-        else {
-          this.collapsibleInstance.close(0);
-          this.collapsibleInstance.close(1);
+        switch (evt.urlAfterRedirects) {
+          case '/project-setup':
+          case '/using-angular2-materialize-v1':
+            this.collapsibleInstance.open(0);
+            break;
+          case '/floating-action-button':
+            this.collapsibleInstance.open(1);
+            break;
+          case '/auto-init':
+          case '/carousel':
+          case '/collapsible':
+          case '/dropdown':
+          case '/feature-discovery':
+          case '/media':
+          case '/modal':
+          case '/parallax':
+          case '/pushpin':
+          case '/scrollspy':
+          case '/sidenav':
+          case '/tabs':
+          case '/toast':
+          case '/tooltip':
+            this.collapsibleInstance.open(2);
+            break;
+          case '/autocomplete':
+          case '/chips':
+          case '/pickers':
+          case '/select':
+          case '/text-inputs':
+            this.collapsibleInstance.open(3);
+            break;
+          default:
+            this.collapsibleInstance.close();
         }
       });
   }
