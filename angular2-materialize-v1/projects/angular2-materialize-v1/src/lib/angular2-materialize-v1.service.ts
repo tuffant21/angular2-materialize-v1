@@ -40,6 +40,7 @@ import {
   ITabsOptions,
   ITapTargetOptions,
   ITimepickerOptions,
+  IToastOptions,
   ITooltipOptions
 } from './IOptions';
 
@@ -338,7 +339,7 @@ export class Angular2MaterializeV1Service {
     return M.Tooltip.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public toast(options: ITooltipOptions = {}): IToast {
+  public toast(options: IToastOptions = {}): IToast {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
