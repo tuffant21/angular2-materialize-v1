@@ -18,6 +18,7 @@ export interface ICarouselOptions {
   fullWidth?: boolean;
   indicators?: boolean;
   noWrap?: boolean;
+  interval?: number;
   onCycleTo?: (slide: HTMLElement, dragged: boolean) => void;
 }
 

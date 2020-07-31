@@ -108,13 +108,13 @@ export class Angular2MaterializeV1Service {
 
   private addAutoScroll(instance: any)
   {
-    if (!instance.options.autoScroll) {
+    if (!instance.options.interval) {
       return;
     }
 
     instance.autoScrollIntervalId = window.setInterval(() => {
       instance.next();
-    }, instance.options.autoScroll);
+    }, instance.options.interval);
 
     instance.el.addEventListener('mouseover', Angular2MaterializeV1Service.carouselMouseOverTouchStart, {passive: true});
     instance.el.addEventListener('mouseleave', Angular2MaterializeV1Service.carouselMouseOutTouchEnd, {passive: true});
