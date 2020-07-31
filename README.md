@@ -5,8 +5,7 @@ This project has 0 dependencies and requires no dependencies to be installed on 
 to install hammerjs or jquery. It is made with vanilla TypeScript and vanilla Angular.
 
 We also added all TypeScript interfaces for materialize options. You can now see what options are available in most 
-IDE's for each function. 
-[Options in IDE](https://raw.githubusercontent.com/tuffant21/angular2-materialize-v1/master/interface_definitions.png)
+IDE's for each function.
 
 ## Project Setup
 Feel free to take a look at the example-project to help you get started. 
