@@ -273,7 +273,24 @@ export class Angular2MaterializeV1Service {
       return null;
     }
 
-    return M.Pushpin.init(Angular2MaterializeV1Service.getElements(elements), options);
+    const elms = Angular2MaterializeV1Service.getElements(elements);
+
+    if (elms instanceof NodeList && !options.offset) {
+      const ret = [];
+
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < elms.length; ++i) {
+        options.offset = elms[i].offsetTop;
+        ret.push(M.Pushpin.init(elms[i], options));
+      }
+
+      return ret;
+    } else if (elms instanceof HTMLElement && !options.offset) {
+      options.offset = elms.offsetTop;
+      return M.Pushpin.init(elms, options);
+    } else {
+      return M.Pushpin.init(elms, options);
+    }
   }
 
   public initScrollSpy(elements: string, options: IScrollSpyOptions = {}): Array<IScrollSpy> | IScrollSpy
