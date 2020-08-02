@@ -199,10 +199,14 @@ export interface ISidenav {
 
 export interface ITabs {
   // methods
+  select: (tabId: string) => void;
+  updateTabIndicator: () => void;
+  destroy: () => void;
 
   // properties
   el: HTMLElement;
   options: IOptions.ITabsOptions;
+  index: number;
 }
 
 export interface ITapTarget {
