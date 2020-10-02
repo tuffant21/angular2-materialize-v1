@@ -122,6 +122,16 @@ export class AppComponent implements AfterViewInit {
 }
 ```
 
+Depending on what you pass into the init functions, you can cast the return value to get the class.
+
+```typescript
+    // passing in an id will return a single instance
+    const instance: IAutocomplete = <IAutocomplete>this.angular2MaterializeService.initAutocomplete('#id', {options});
+
+    // passing in a class will return an array
+    const instances: Array<IAutocomplete> = <Array<IAutocomplete>>this.angular2MaterializeService.initAutocomplete('.class', {options});
+```
+
 ## TypeScript (JavaScript section for materializecss.com)
 For a full list of examples in the github code, check out the example project code here: 
 https://github.com/tuffant21/angular2-materialize-v1/tree/master/example-project/src/app/components

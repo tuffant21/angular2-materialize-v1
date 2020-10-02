@@ -2,7 +2,10 @@
 Angular 2 support for Materialize CSS v1.0+ framework.
 
 This project has 0 dependencies and requires no dependencies to be installed on your production server. Forget the need 
-to install hammerjs or jquery. It is made with vanilla TypeScript and vanilla Angular. 
+to install hammerjs or jquery. It is made with vanilla TypeScript and vanilla Angular.
+
+We also added all TypeScript interfaces for materialize options. You can now see what options are available in most 
+IDE's for each function.
 
 ## Project Setup
 Feel free to take a look at the example-project to help you get started. 
@@ -93,30 +96,40 @@ export class AppComponent implements AfterViewInit {
     // NOTE - autoInit() only works on the currently loaded items in view
     // this.angular2MaterializeService.autoInit();
     // this.angular2MaterializeService.dismissAllToasts();
-    // this.angular2MaterializeService.initAutocomplete('#id, .class, element', {options});
-    // this.angular2MaterializeService.initCarousel('#id, .class, element', {options});
-    // this.angular2MaterializeService.initCharacterCount('#id, .class, element', {options});
-    // this.angular2MaterializeService.initChips('#id, .class, element', {options});
-    // this.angular2MaterializeService.initCollapsible('#id, .class, element', {options});
-    // this.angular2MaterializeService.initDatePicker('#id, .class, element', {options});
-    // this.angular2MaterializeService.initDropdown('#id, .class, element', {options});
-    // this.angular2MaterializeService.initFloatingActionButton('#id, .class, element', {options});
-    // this.angular2MaterializeService.initMaterialboxed('#id, .class, element', {options});
-    // this.angular2MaterializeService.initModal('#id, .class, element', {options});
-    // this.angular2MaterializeService.initParallax('#id, .class, element', {options});
-    // this.angular2MaterializeService.initPushpin('#id, .class, element', {options});
-    // this.angular2MaterializeService.initScrollSpy('#id, .class, element', {options});
-    // this.angular2MaterializeService.initSelect('#id, .class, element', {options});
-    // this.angular2MaterializeService.initSidenav('#id, .class, element', {options});
-    // this.angular2MaterializeService.initTabs('#id, .class, element', {options});
-    // this.angular2MaterializeService.initTapTarget('#id, .class, element', {options});
-    // this.angular2MaterializeService.initTimepicker('#id, .class, element', {options});
-    // this.angular2MaterializeService.initTooltip('#id, .class, element', {options});
-    // this.angular2MaterializeService.toast({options});
+    // const instance(s) = this.angular2MaterializeService.initAutocomplete('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initCarousel('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initCharacterCount('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initChips('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initCollapsible('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initDatePicker('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initDropdown('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initFloatingActionButton('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initMaterialboxed('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initModal('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initParallax('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initPushpin('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initScrollSpy('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initSelect('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initSidenav('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initTabs('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initTapTarget('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initTimepicker('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initTooltip('#id, .class, element', {options});
+    // const instance = this.angular2MaterializeService.toast({options});
     // this.angular2MaterializeService.textareaAutoResize();
     // this.angular2MaterializeService.updateTextFields();
   }
 }
+```
+
+Depending on what you pass into the init functions, you can cast the return value to get the class.
+
+```typescript
+    // passing in an id will return a single instance
+    const instance: IAutocomplete = <IAutocomplete>this.angular2MaterializeService.initAutocomplete('#id', {options});
+
+    // passing in a class will return an array
+    const instances: Array<IAutocomplete> = <Array<IAutocomplete>>this.angular2MaterializeService.initAutocomplete('.class', {options});
 ```
 
 ## TypeScript (JavaScript section for materializecss.com)
