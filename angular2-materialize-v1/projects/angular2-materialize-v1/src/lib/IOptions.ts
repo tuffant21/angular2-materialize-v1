@@ -4,7 +4,7 @@ import {CssSelector} from '@angular/compiler';
 export interface IAutocompleteOptions {
   data?: any;
   limit?: number;
-  onAutocomplete?: () => void;
+  onAutocomplete?: (selectedOption: string) => void;
   minLength?: number;
   sortFunction?: (a: any, b: any, inputString: string) => Array<any>;
 }
