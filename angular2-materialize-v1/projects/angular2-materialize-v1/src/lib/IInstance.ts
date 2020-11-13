@@ -197,6 +197,20 @@ export interface ISidenav {
   isDragged: boolean;
 }
 
+export interface ISlider {
+  // methods
+  pause: () => void;
+  start: () => void;
+  next: () => void;
+  prev: () => void;
+  destroy: () => void;
+
+  // properties
+  el: HTMLElement;
+  options: IOptions.ISidenavOptions;
+  activeIndex: number;
+}
+
 export interface ITabs {
   // methods
   select: (tabId: string) => void;

@@ -16,6 +16,7 @@ import {
   IScrollSpy,
   ISelect,
   ISidenav,
+  ISlider,
   ITabs,
   ITapTarget,
   ITimepicker,
@@ -37,6 +38,7 @@ import {
   IScrollSpyOptions,
   ISelectOptions,
   ISidenavOptions,
+  ISliderOptions,
   ITabsOptions,
   ITapTargetOptions,
   ITimepickerOptions,
@@ -56,33 +58,6 @@ export class Angular2MaterializeV1Service {
   {
   }
 
-  private static carouselMouseOverTouchStart()
-  {
-    const instance = M.Carousel.getInstance(this);
-    if (!instance) {
-      return;
-    }
-
-    if (instance.autoScrollIntervalId) {
-      window.clearInterval(instance.autoScrollIntervalId);
-      instance.autoScrollIntervalId = undefined;
-    }
-  }
-
-  private static carouselMouseOutTouchEnd()
-  {
-    const instance = M.Carousel.getInstance(this);
-    if (!instance) {
-      return;
-    }
-
-    if (!instance.autoScrollIntervalId) {
-      instance.autoScrollIntervalId = window.setInterval(() => {
-        instance.next();
-      }, instance.options.autoScroll);
-    }
-  }
-
   private static getElements(elements: string): NodeListOf<HTMLElement> | HTMLElement
   {
     if (elements.charAt(0) === '#') {
@@ -93,35 +68,6 @@ export class Angular2MaterializeV1Service {
     return document.querySelectorAll(elements);
   }
 
-  private static removeAutoScroll(instance: any)
-  {
-    if (instance.autoScrollIntervalId) {
-      window.clearInterval(instance.autoScrollIntervalId);
-      instance.autoScrollIntervalId = undefined;
-    }
-
-    instance.el.removeEventListener('mouseover', Angular2MaterializeV1Service.carouselMouseOverTouchStart);
-    instance.el.removeEventListener('mouseleave', Angular2MaterializeV1Service.carouselMouseOutTouchEnd);
-    instance.el.removeEventListener('touchstart', Angular2MaterializeV1Service.carouselMouseOverTouchStart);
-    instance.el.removeEventListener('touchend', Angular2MaterializeV1Service.carouselMouseOutTouchEnd);
-  }
-
-  private addAutoScroll(instance: any)
-  {
-    if (!instance.options.interval) {
-      return;
-    }
-
-    instance.autoScrollIntervalId = window.setInterval(() => {
-      instance.next();
-    }, instance.options.interval);
-
-    instance.el.addEventListener('mouseover', Angular2MaterializeV1Service.carouselMouseOverTouchStart, {passive: true});
-    instance.el.addEventListener('mouseleave', Angular2MaterializeV1Service.carouselMouseOutTouchEnd, {passive: true});
-    instance.el.addEventListener('touchstart', Angular2MaterializeV1Service.carouselMouseOverTouchStart, {passive: true});
-    instance.el.addEventListener('touchend', Angular2MaterializeV1Service.carouselMouseOutTouchEnd, {passive: true});
-  }
-
   public autoInit(): void
   {
     if (isPlatformServer(this.platformId)) {
@@ -129,23 +75,6 @@ export class Angular2MaterializeV1Service {
     }
 
     return M.AutoInit();
-  }
-
-  public destroyCarousel(instances: Array<ICarousel> | ICarousel): void
-  {
-    if (isPlatformServer(this.platformId)) {
-      return null;
-    }
-
-    if (Array.isArray(instances)) {
-      for (const instance of instances) {
-        Angular2MaterializeV1Service.removeAutoScroll(instance);
-        instance.destroy();
-      }
-    } else {
-      Angular2MaterializeV1Service.removeAutoScroll(instances);
-      instances.destroy();
-    }
   }
 
   public dismissAllToasts(): void
@@ -172,17 +101,7 @@ export class Angular2MaterializeV1Service {
       return null;
     }
 
-    const instances = M.Carousel.init(Angular2MaterializeV1Service.getElements(elements), options);
-
-    if (Array.isArray(instances)) {
-      for (const instance of instances) {
-        this.addAutoScroll(instance);
-      }
-    } else {
-      this.addAutoScroll(instances);
-    }
-
-    return instances;
+    return M.Carousel.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
   public initCharacterCount(elements: string): Array<ICharacterCounter> | ICharacterCounter
@@ -311,8 +230,7 @@ export class Angular2MaterializeV1Service {
     return M.FormSelect.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initSidenav(elements: string, options: ISidenavOptions = {}): Array<ISidenav> | ISidenav
-  {
+  public initSidenav(elements: string, options: ISidenavOptions = {}): Array<ISidenav> | ISidenav {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -320,8 +238,15 @@ export class Angular2MaterializeV1Service {
     return M.Sidenav.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTabs(elements: string, options: ITabsOptions = {}): Array<ITabs> | ITabs
-  {
+  public initSlider(elements: string, options: ISliderOptions = {}): Array<ISlider> | ISlider {
+    if (isPlatformServer(this.platformId)) {
+      return null;
+    }
+
+    return M.Slider.init(Angular2MaterializeV1Service.getElements(elements), options);
+  }
+
+  public initTabs(elements: string, options: ITabsOptions = {}): Array<ITabs> | ITabs {
     if (isPlatformServer(this.platformId)) {
       return null;
     }
@@ -329,8 +254,7 @@ export class Angular2MaterializeV1Service {
     return M.Tabs.init(Angular2MaterializeV1Service.getElements(elements), options);
   }
 
-  public initTapTarget(elements: string, options: ITapTargetOptions = {}): Array<ITapTarget> | ITapTarget
-  {
+  public initTapTarget(elements: string, options: ITapTargetOptions = {}): Array<ITapTarget> | ITapTarget {
     if (isPlatformServer(this.platformId)) {
       return null;
     }

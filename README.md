@@ -111,6 +111,7 @@ export class AppComponent implements AfterViewInit {
     // const instance(s) = this.angular2MaterializeService.initScrollSpy('#id, .class, element', {options});
     // const instance(s) = this.angular2MaterializeService.initSelect('#id, .class, element', {options});
     // const instance(s) = this.angular2MaterializeService.initSidenav('#id, .class, element', {options});
+    // const instance(s) = this.angular2MaterializeService.initSlider('#id, .class, element', {options});
     // const instance(s) = this.angular2MaterializeService.initTabs('#id, .class, element', {options});
     // const instance(s) = this.angular2MaterializeService.initTapTarget('#id, .class, element', {options});
     // const instance(s) = this.angular2MaterializeService.initTimepicker('#id, .class, element', {options});
@@ -349,6 +350,20 @@ this.angular2MaterializeService.initSidenav('.sidenav');
 
 // initialization with options
 this.angular2MaterializeService.initSidenav('.sidenav', {
+  // insert options here
+});
+```
+
+### Slider
+```typescript
+// initialize a single slider with an id
+this.angular2MaterializeService.initSlider('#slider-id');
+
+// initialize all sliders with class .slider
+this.angular2MaterializeService.initSlider('.slider');
+
+// initialization with options
+this.angular2MaterializeService.initSlider('.slider', {
   // insert options here
 });
 ```

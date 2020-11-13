@@ -18,7 +18,6 @@ export interface ICarouselOptions {
   fullWidth?: boolean;
   indicators?: boolean;
   noWrap?: boolean;
-  interval?: number;
   onCycleTo?: (slide: HTMLElement, dragged: boolean) => void;
 }
 
@@ -157,6 +156,13 @@ export interface ISidenavOptions {
   onCloseStart?: (el: HTMLElement) => void;
   onCloseEnd?: (el: HTMLElement) => void;
   preventScrolling?: boolean;
+}
+
+export interface ISliderOptions {
+  indicators?: boolean;
+  height?: number;
+  duration?: number;
+  interval?: number;
 }
 
 export interface ITabsOptions {
