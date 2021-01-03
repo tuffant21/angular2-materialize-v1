@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NavTitleComponent } from './nav-title.component';
 
@@ -6,7 +6,7 @@ describe('NavTitleComponent', () => {
   let component: NavTitleComponent;
   let fixture: ComponentFixture<NavTitleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NavTitleComponent ]
     })
